@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filtration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="cente">
+        <button id="recogButton">Satrt Recording</button>
+        <button id="transcript">Transcript</button>
+
+     </div>
+
+    <script>
+    $(document).ready(function(){
+        $('#recogButton').click(function(){
+            // Make a request to the '/recog_audio' route
+            $.get('/recog_audio', function(data){
+                // Optionally, do something with the response data
+                console.log(data);
+            });
+        });
+    });
+
+
+    $(document).ready(function(){
+        $('#transcript').click(function(){
+            // Make a request to the '/recog_audio' route
+            $.get('/transcription', function(data){
+                // Optionally, do something with the response data
+                console.log(data);
+            });
+        });
+    });
+
+
+    </script>
+
+
+</body>
+</html>

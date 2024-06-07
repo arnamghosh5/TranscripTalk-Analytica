@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcript</title>
+    <style>
+        *{
+          background-color:#1abc9c;
+          box-sizing: border-box;
+        }
+      img {
+  border-radius: 8px;
+  }
+      th, td {
+  border-style: solid;
+  border-color: #96D4D4;
+ }
+
+.active {
+  background-color: burlywood;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;  
+  border: 4px solid black;
+  background-color: black;
+}
+
+li {
+  float: left;
+}
+li a:hover:not(.active) {
+  background-color: blueviolet;
+}
+li a.active {
+  color: white;
+  background-color: burlywood;
+}
+li a, .dropbtn {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
+.dropdown:hover .dropbtn {
+  background-color: blueviolet;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: blue;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: blue;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #85df6f;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: white}
+
+th {
+  background-color: #333;
+  color: white;
+}
+
+h2 {
+  border-bottom: 6px solid blueviolet;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+img:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+.k,.l,.m{
+  float: right;
+  padding: 6px;
+  background: #ddd;
+  border: none;
+}
+.i,.j,.dropdown{
+  float: left;
+  padding: 6px;
+  background: #ddd;
+  border: none;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+    </style>
+    <!-- <script src="{{url_for('static', filename='somejavascriptfile.js')}}"></script> -->
+    <script src="new.js"></script>
+</head>
+<body>
+  <ul>
+    
+    <li class="i"><a a class="active" href="#home">Home</a></li>
+    <li class="j"><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Choose File</a>
+      <div class="dropdown-content">
+        <a href="audio.html">Audio File</a>
+
+        <a href="video.html">Video File</a>     
+      </div>
+    </li>
+    <!--  -->
+    <li class="m"><a href="feedback.html">Feedback</a></li>
+    <li class="l"><a href="{{ url_for('login')}}">Login</a></li>
+    <li class="k"><a href="{{ url_for('signup')}}">Sign Up</a></li>
+  </ul>
+  <h1 id="hm"><b><u>Project Title:</u></b></h1>
+  <div class="row">
+    <div class="column">
+      <img src="/static/k.jpg" alt="5 Terre" style="width:90%">
+      <p><b>Transcript Generate From Audio</b></p>
+    </div>
+    <div class="column">
+      <img src="/static/v.jpg" alt="5 Terre" style="width:90%">
+      <p><b>Transcript Generate From Video</b></p>
+    </div>
+    <div class="column">
+      <img src="/static/audio.png" alt="5 Terre" style="width:63%">
+      <p><b>Audio Translation Services</b></p>
+    </div>
+    </div>
+    <div class="row">    
+      <div class="column">
+        <img src="/static/vid.jpg" alt="5 Terre" style="width:55%">
+        <p><b>Video Translation Services</b></p>
+      </div>
+      <div class="column">
+        <img src="/static/speech.png" alt="5 Terre" style="width:64%">
+        <p><b>Speech Recognition System</b></p>
+      </div>
+      </div>
+</body>
+</html>

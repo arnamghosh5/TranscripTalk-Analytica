@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles/index.css"/>
+</head>
+<body>
+<center>
+<div id="#login_registration_form" style="display: none;">
+    <!-----------------------Registration Section-------------->
+            <div id="#registration_form" style="display: none;">
+                <fieldset>
+                    <legend>Registration Form</legend>
+                
+                <form >
+                    
+                      <label for="email"><b>Email</b></label>
+                      <input type="text" placeholder="Enter Email" id = "name" name="email" >
+                  
+                      <label for="psw"><b>Password</b></label>
+                      <input type="password" placeholder="Enter Password" id = "password" name="password" >
+                   
+                    
+                      
+                      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                  
+                    
+                  </form>
+                  <button id="#registration_submit_btn" onclick="LoginRegistrationSubmit(this.id)">Registration Now</button>
+                </fieldset>
+            </div>
+
+<!-----------------------Login Section---------------------------------------->
+<div id="#login_form" style="display: none;">
+    <center>
+        <fieldset>
+            <legend>Login Form</legend>
+                <form>
+                
+                <div>
+                
+                            <label for="email"><b style="float: left;">Email</b><br>
+                                <input type="text" placeholder="Enter Email" name="email" id = "email" >
+                        </label>
+                            <label for="password"><b style="float: left;">Password</b><br>
+                                <input type="password" placeholder="Enter Password" name="password" id="password" >
+                            </label>
+                            <label style="float: left;">
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label><br><br>
+                
+                         </div>
+                </form>
+                <button id="#login_submit_btn" onclick="LoginRegistrationSubmit(this.id)">Login Now</button>
+
+        </fieldset>
+        </center> 
+</div>
+<div>
+<div>
+    <button id="#logn_btn" onclick="LoginRegistrationToggle(this.id)">Login</button>
+</div>
+<div>
+    <button id="#registration_btn" onclick="LoginRegistrationToggle(this.id)">Registration</button>
+</div>
+<div>
+    <button id="#close_btn" onclick="LoginRegistrationToggle(this.id)">Close</button>
+</div>
+</div>
+</div>   
+
+
+
+
+<!------------------------Login registration button------------------------->
+<div>
+    <div id="#login_registration_btn" style="display: block;">
+        <button id="#login_registration" onclick="LoginRegistration(this.id)">Login/Registration</button>
+        <div>
+         
+        </div>
+    </div>
+        <div id="#menu_section" style="display: none" class="menu_section">
+                    <div >
+                        <button id="#menu_bar" onclick="MenuSectionHandle(this.id)">Menu</button>
+                    </div>
+                    <div id="#menu_items" style="display: none">
+                        <div>
+                            <button>Eamil</button>
+                        </div>
+                        <div>
+                            <button>Password</button>
+                        </div>
+                        <div>
+                            <button id="#logout_btn" onclick="LoginRegistration(this.id)">Log out</button>
+                        </div>
+                    </div>
+        </div>
+</div>
+
+<div class="main_section">
+            <div id="#Transcript_event" style="display: none" >
+                <div>
+                    <button id="#transcription_btn" onclick="TranscriptionFiltrationToggle(this.id)">Transcription</button>
+                </div>
+                <div>
+                    <button>Filtration</button>
+                </div>
+            </div>
+            <!----------------------transcript file------------------------->
+            <div id="#Transcrpt_file" style="display: none" >
+                <form>
+                    <input type="file" >
+                    <button>Upload Now</button>
+                </form>
+            </div>
+                <div class="main_Section_item">
+                    Transcript Generate From Audio
+                </div>
+                <div class="main_Section_item">
+                    Transcript Generate From Video
+                </div>
+                <div class="main_Section_item">
+                    Audio Translation Services
+                </div>
+                <div class="main_Section_item">
+                    Video Translation Services
+                </div>
+                <div class="main_Section_item">
+                    Speech Recognition System
+                </div>
+</div>
+
+
+
+
+<script>
+    var LoginRegistrationBtn=document.getElementById('#login_registration_btn')
+    var Transcript_event=document.getElementById('#Transcript_event');
+    var login_registration=document.getElementById('#login_registration');
+    var Menu_Section= document.getElementById('#menu_section');
+    var Menu_bar=document.getElementById('#menu_bar')
+    var Menu_items =document.getElementById('#menu_items');
+    var Login_registration_form=document.getElementById('#login_registration_form');
+    var Login_form=document.getElementById("#login_form");
+    var Registration_form=document.getElementById("#registration_form");
+    var Transcription_file=document.getElementById('#Transcrpt_file')
+    
+    function LoginRegistration(clciked){
+        if(clciked== "#login_registration" && Login_registration_form.style.display =='none'){
+            LoginRegistrationBtn.style.display='none';
+            Login_registration_form.style.display="block";
+
+        }else if(clciked== "#logout_btn" ){
+            Login_registration_form.style.display="none"
+            LoginRegistrationBtn.style.display='block';
+            Menu_Section.style.display="none";
+            Transcript_event.style.display="none";
+            Login_form.style.display="none";
+            Registration_form.style.display="none";
+
+        }else{
+
+        }
+    }
+
+function MenuSectionHandle(clciked){
+    if(clciked== "#menu_bar" && Menu_items.style.display=="none"){
+        Menu_items.style.display="block"
+
+        }else{
+            Menu_items.style.display="none"
+        }
+}
+
+function LoginRegistrationToggle(clicked){
+    if(clicked == "#logn_btn" && Login_form.style.display=="none"){
+            Login_form.style.display="block";
+            Registration_form.style.display="none";
+    }else if(clicked == "#registration_btn" && Registration_form.style.display=="none"){
+            Login_form.style.display="none";
+            Registration_form.style.display="block";
+    }else if(clicked == "#close_btn"){
+        Login_form.style.display="none";
+        Registration_form.style.display="none";
+        Login_registration_form.style.display="none";
+        LoginRegistrationBtn.style.display="block"
+    }else{
+
+    }
+}
+
+function LoginRegistrationSubmit(clicked){
+    if(clicked=="#registration_submit_btn"){
+        Login_registration_form.style.display="none"
+        LoginRegistrationBtn.style.display='none';
+        Menu_Section.style.display="block";
+        Transcript_event.style.display="block";
+    }else if(clicked == "#login_submit_btn"){
+        Login_registration_form.style.display="none"
+        LoginRegistrationBtn.style.display='none';
+        Menu_Section.style.display="block";
+        Transcript_event.style.display="block"; 
+    }else{
+
+    }
+}
+
+
+function TranscriptionFiltrationToggle(clicked){
+    if(clicked=="#transcription_btn" && Transcription_file.style.display=="none"){
+                Transcription_file.style.display="block";
+    }
+}
+</script>
+</center>
+</body>
+</html>

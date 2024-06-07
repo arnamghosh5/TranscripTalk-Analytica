@@ -1,0 +1,21 @@
+
+*{
+    background-color: blue;
+    color: rgb(206, 218, 218);
+}
+.bg{
+ background-image: url("a.jpg");
+
+/*Full height */
+ height: 100%; 
+
+/*Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+ .kg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }

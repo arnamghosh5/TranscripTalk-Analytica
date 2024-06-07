@@ -1,0 +1,8 @@
+.main_section{
+    background-color: aquamarine;
+    padding:1%;
+}
+.main_Section_item{
+    display: inline-block;
+    border: 1px solid ;
+}

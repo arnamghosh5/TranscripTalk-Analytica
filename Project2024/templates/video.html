@@ -1,0 +1,91 @@
+<html>
+<body>
+   <style>
+      *{
+         background-color: rgb(177, 194, 22);
+            color: blue;
+            padding: 10px;
+            margin: 10px;
+      }
+      .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        video {
+            width: 190%;
+            max-width: 300px;
+        }
+        h3,p{
+         text-align: center;
+        }
+        .center {
+          margin: 0;
+          position: absolute;
+          top: 70%;
+          left: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.cent{
+             margin: 0;
+             position: absolute;
+             top: 80%;
+             left: 50%;
+             -ms-transform: translate(-50%, -50%);
+             transform: translate(-50%, -50%);
+   }
+   
+     button {margin: 5px; padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;text-align: center;}
+      button:hover {background-color: #0056b3;}
+   </style>
+   <h3>
+      Control a multimedia file (Video)
+   </h3>
+   <p> Click the below buttons to control the multimedia file (video) 
+   </p>
+   
+   <div style="text-align: center;"></div>
+   <div class="video-container">
+      <input type="file">
+      <video width="600" height="280"controls></video>
+   </div>
+   <br />
+   <br>
+   <br>
+   <div class="center">
+      <button onclick="playVideo()">Play</button>
+      <button onclick="pauseVideo()">Pause</button>
+      <button onclick="stopVideo()">Stop</button>
+   </div>
+   <div class="cent">
+      <button id = "myButton"> Transcription </button>
+      <button id = "myButto"> Compression </button>
+      
+   </div>
+   <script>
+      var input = document.querySelector("input[type=file]");
+      var video = document.querySelector("video");
+      input.onchange = function() {
+         video.src = URL.createObjectURL(input.files[0]);
+      }
+      //let video=document.getElementById('myvideo')
+      function playVideo(){
+         video.play()
+      }
+      function pauseVideo(){
+         video.pause()
+      }
+      function stopVideo(){
+         video.load()
+      }
+      document.getElementById("myButton").onclick = function () {
+        location.href = "another.html";
+    };
+    document.getElementById("myButto").onclick = function () {
+        location.href = "another.html";
+    };
+   </script>
+</body>
+</html>

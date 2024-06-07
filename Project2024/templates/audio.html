@@ -1,0 +1,154 @@
+<html>
+   <body>
+      <style>
+         *{
+            background-color: rgb(177, 194, 22);
+            color: blue;
+            padding: 10px;
+            margin: 10px;
+         }
+         .audio-container {
+               display: flex;
+               justify-content: center;
+               align-items: center;
+           } 
+           audio {
+               width: 190%;
+               max-width: 300px;
+           }
+           h3,p,h2{
+            text-align: center;
+           }
+           .center {
+             margin: 0;
+             position: absolute;
+             top: 40%;
+             left: 50%;
+             -ms-transform: translate(-50%, -50%);
+             transform: translate(-50%, -50%);
+   }
+   .cente{
+             margin: 0;
+             position: absolute;
+             top: 60%;
+             left: 50%;
+             -ms-transform: translate(-50%, -50%);
+             transform: translate(-50%, -50%);
+   }
+   .cent{
+             margin: 0;
+             position: absolute;
+             top: 70%;
+             left: 50%;
+             -ms-transform: translate(-50%, -50%);
+             transform: translate(-50%, -50%);
+   }
+   .any{
+      text-align: j;
+   }
+      button {margin: 5px; padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;text-align: center;}
+      button:hover {background-color: #0056b3;}
+      div { margin-top: 20px;}
+      </style>
+   <h3>
+      Play a multimedia file (Audio)
+   </h3>
+   <p> Click the below buttons to control the multimedia file (Audio) </p>
+   <div style="text-align: center;"></div>
+   <div class="audio-container">
+   <input type="file">
+   <audio controls></audio>
+   </div>
+   <br />
+   <br>
+   <br>
+  
+   <div class="center">
+      <button onclick="playAudio()">Play</button>
+      <button onclick="pauseVideo()">Pause</button>
+      <button onclick="stopVideo()">Stop</button>
+   </div>
+   <br>
+   <br>
+   <br>
+   <h2><b>If You Want to Record Anything then kindly start Recording.</b></h2>
+   <br>
+   <div class="cente">
+      <button id = "start"> Start Recording </button>
+      <button id = "stop"> Stop Recording </button>
+      <button id = "play"> Play Recorded Audio </button>
+   </div> <br> 
+   <div id = "output"> </div>
+   <br>
+   <div class="cent">
+      <button id = "myButton"> Transcription </button>
+      <button id = "myButto"> Compression </button>
+      
+   </div>
+   <script>
+      var input = document.querySelector("input[type=file]");
+      var audio = document.querySelector("audio");
+      input.onchange = function() {
+         audio.src = URL.createObjectURL(input.files[0]);
+      }
+      function playAudio(){
+         audio.play()
+      }
+      function pauseVideo(){
+         audio.pause()
+      }
+      function stopVideo(){
+         audio.load()
+      }
+      document.getElementById("myButton").onclick = function () {
+        location.href = "another.html";
+    };
+    document.getElementById("myButto").onclick = function () {
+        location.href = "another.html";
+    };
+      const startButton = document.getElementById('start');
+      const stopButton = document.getElementById('stop');
+      const playButton = document.getElementById('play');
+      let output = document.getElementById('output');
+      let audioRecorder;
+      let audioChunks = [];
+      navigator.mediaDevices.getUserMedia({ audio: true })
+         .then(stream => {
+         
+            // Initialize the media recorder object
+            audioRecorder = new MediaRecorder(stream);
+            
+            // dataavailable event is fired when the recording is stopped
+            audioRecorder.addEventListener('dataavailable', e => {
+               audioChunks.push(e.data);
+            });
+            
+            // start recording when the start button is clicked
+            startButton.addEventListener('click', () => {
+               audioChunks = [];
+               audioRecorder.start();
+               output.innerHTML = 'Recording started! Speak now.';
+            });
+            
+            // stop recording when the stop button is clicked
+            stopButton.addEventListener('click', () => {
+               audioRecorder.stop();
+               output.innerHTML = 'Recording stopped! Click on the play button to play the recorded audio.';
+            });
+            
+            // play the recorded audio when the play button is clicked
+            playButton.addEventListener('click', () => {
+               const blobObj = new Blob(audioChunks, { type: 'audio/webm' });
+               const audioUrl = URL.createObjectURL(blobObj);
+               const audio = new Audio(audioUrl);
+               audio.play();
+               output.innerHTML = 'Playing the recorded audio!';
+            });
+         }).catch(err => {
+         
+            // If the user denies permission to record audio, then display an error.
+            console.log('Error: ' + err);
+         });
+   </script>
+</body>
+</html>
